@@ -11,7 +11,6 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import im.juneau.discretemathformulas.R;
 
 public class YoutubePlayerActivity extends YouTubeBaseActivity {
 
@@ -27,6 +26,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
         setContentView(R.layout.activity_youtube_player);
         Log.i(TAG, "onCreate: Starting");
 
+        youTubePlayerView = (YouTubePlayerView)findViewById(R.id.youtubePlayerView);
         playButton = findViewById(R.id.playButton);
 
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
@@ -48,6 +48,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                playButton.setVisibility(View.GONE);
                 Log.i(TAG, "Intializing YouTube Player");
                 youTubePlayerView.initialize(YouTubeConfig.getApiKey(), onInitializedListener);
             }
