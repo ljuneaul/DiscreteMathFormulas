@@ -12,4 +12,4 @@
 /captures
 .externalNativeBuild
 
-*Config*
+/app/src/main/java/im/juneau/discretemathformulas/YouTubeConfig.java
