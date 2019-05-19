@@ -25,23 +25,41 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Discrete Math Formulas");
 
         // DB of equations & urls
-        ArrayList numthEqList = new ArrayList<>(Arrays.asList("<b>Divisibility rule for 2</b><br>&emsp;All even numbers.",
-                                                              "<b>Divisibility rule for 3</b><br>&emsp;The sum of its digit is divisible by 3.",
-                                                              "<b>Divisibility rule for 4</b><br>&emsp;The last two digits form a number divisible by 4.",
-                                                              "<b>Divisibility rule for 5</b><br>&emsp;Finishes at 0 or 5.",
-                                                              "<b>Divisibility rule for 6</b><br>&emsp;Divisible by 2 and 3 at the same time.",
-                                                              "<b>Divisibility rule for 7</b><br>&emsp;The last digit doubled and subtracted from the first part of the number n. Repeat the step as necessary.",
-                                                              "<b>Divisibility rule for 8</b><br>&emsp;The last three digits from a number divisible by 8.",
-                                                              "<b>Divisibility rule for 9</b><br>&emsp;The sum of its digits is divisible by 9.",
-                                                              "<b>Divisibility rule for 10</b><br>&emsp;The number finishes at 0.",
-                                                              "<b>Divisibility rule for 11</b><br>&emsp;The alternating sum of its digits is divisible by 11.",
+        ArrayList numthEqList = new ArrayList<>(Arrays.asList("<b>Divisibility rule for 2</b><br>" +
+                                                                      "&emsp;All even numbers.",
+                                                              "<b>Divisibility rule for 3</b><br>" +
+                                                                      "&emsp;The sum of its digit is divisible by 3.",
+                                                              "<b>Divisibility rule for 4</b><br>" +
+                                                                      "&emsp;The last two digits form a number divisible by 4.",
+                                                              "<b>Divisibility rule for 5</b><br>" +
+                                                                      "&emsp;Finishes at 0 or 5.",
+                                                              "<b>Divisibility rule for 6</b><br>" +
+                                                                      "&emsp;Divisible by 2 and 3 at the same time.",
+                                                              "<b>Divisibility rule for 7</b><br>" +
+                                                                      "&emsp;The last digit doubled and subtracted from the first part of the number n. Repeat the step as necessary.",
+                                                              "<b>Divisibility rule for 8</b><br>" +
+                                                                      "&emsp;The last three digits from a number divisible by 8.",
+                                                              "<b>Divisibility rule for 9</b><br>" +
+                                                                      "&emsp;The sum of its digits is divisible by 9.",
+                                                              "<b>Divisibility rule for 10</b><br>" +
+                                                                      "&emsp;The number finishes at 0.",
+                                                              "<b>Divisibility rule for 11</b><br>" +
+                                                                      "&emsp;The alternating sum of its digits is divisible by 11.",
                                                               "$(a-r)\\div=q\\\\" +
                                                                       "\\quad\\enspace a-r=qb\\\\" +
                                                                       "\\qquad\\quad\\, a=qb+r$",
                                                               "If $a\\equiv b\\pmod n$ and $c\\equiv d\\pmod n$ then:<br>" +
                                                                       "$\\quad a+c\\equiv b+d\\enspace\\pmod n\\\\\\\\" +
                                                                       "\\quad a-c\\equiv b-d\\enspace\\pmod n\\\\\\\\" +
-                                                                      "\\quad\\enspace a\\cdot c\\equiv b\\cdot d\\enspace\\pmod n$"));
+                                                                      "\\quad\\enspace a\\cdot c\\equiv b\\cdot d\\enspace\\pmod n$",
+                                                              "<b>Airline Tickets</b>:<br>" +
+                                                                      "&emsp;main part $\\equiv$ check digit$\\pmod 7$",
+                                                              "<b>SIN</b>: Double the even position digits and add their digits, sum the rest of the digits<br>" +
+                                                                      "&emsp;-sum$ \\equiv $check digit$\\pmod {10}$",
+                                                              "<b>UPC</b>:<br>" +
+                                                                      "&emsp;check digit $\\equiv -(3a_{11}+a_{10}+3a_9+a_8+3a_7+a_6+3a_5+a_4+3a_3+a_2+3a_1)\\pmod {10}$",
+                                                              "<b>ISBN</b>:<br>" +
+                                                                      "&emsp;check digit $\\equiv a_9+2a_8+3a_7+4a_6+6a_4+7a_3+8a_2+9a_1\\pmod {11}$"));
         ArrayList numthUrlList = new ArrayList<>(Arrays.asList("Df9h5t64NlQ",
                                                                "Df9h5t64NlQ",
                                                                "Df9h5t64NlQ",
@@ -53,7 +71,11 @@ public class MainActivity extends AppCompatActivity {
                                                                "Df9h5t64NlQ",
                                                                "Df9h5t64NlQ",
                                                                "6dZLq77gSGU",
-                                                               "aAVR1MhR-bs"));
+                                                               "aAVR1MhR-bs",
+                                                               "JZp88Nbhki0",
+                                                               "wDcgUsh1Zks",
+                                                               "lCFI-kRWOOw",
+                                                               "5qcrDnJg-98"));
 
         ArrayList seqEqList = new ArrayList<>(Arrays.asList("Binet's fomula: $n^{th}$ Fibonacci Number<br>" +
                                                                        "$\\quad f_n={\\big({1+\\sqrt{5} \\over 2}\\big)^n - \\big(-{1+\\sqrt{5} \\over 2}\\big)^{-n} \\over \\sqrt{5}}$",
@@ -91,10 +113,37 @@ public class MainActivity extends AppCompatActivity {
                                                                 "us2nQccKwXQ",
                                                                 "XqQTXW7XfYA",
                                                                 "iKy-d5_erhI"));
-        ArrayList proEqList = new ArrayList<>(Arrays.asList(""));
-        ArrayList proUrlList = new ArrayList<>(Arrays.asList(""));
+
+        ArrayList proEqList = new ArrayList<>(Arrays.asList("The probability of an event<br>" +
+                                                                    "$\\quad P(A) = {\\#\\,of\\,outcomes\\,in\\,A \\over \\#\\,of\\,all\\,possible\\,outcomes}$\n",
+                                                            "The General Additional Rule<br>" +
+                                                                    "$\\quad P(A\\lor B)=P(A)+P(B)-P(A\\land B)$",
+                                                            "The Conditional Probability<br>" +
+                                                                    "$\\quad P(B\\mid A)={P(A\\land B) \\over P(A)}$",
+                                                            "The Binomial Distribution Model<br>" +
+                                                                    "$\\quad P(X=x)=n\\raisebox{0.25em}{C}x\\cdot p^x\\cdot q^{n-x}$",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            ""));
+        ArrayList proUrlList = new ArrayList<>(Arrays.asList("fw-dGViD8w4",
+                                                            "jDnU3-jX4GA",
+                                                            "H02B3aMNKzE",
+                                                            "WWv0RUxDfbs",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            ""));
+
         ArrayList dataEqList = new ArrayList<>(Arrays.asList(""));
         ArrayList dataUrlList = new ArrayList<>(Arrays.asList(""));
+
         ArrayList meanEqList = new ArrayList<>(Arrays.asList(""));
         ArrayList meanUrlList = new ArrayList<>(Arrays.asList(""));
 
