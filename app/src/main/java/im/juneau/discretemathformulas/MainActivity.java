@@ -117,35 +117,79 @@ public class MainActivity extends AppCompatActivity {
         ArrayList proEqList = new ArrayList<>(Arrays.asList("The probability of an event<br>" +
                                                                     "$\\quad P(A) = {\\#\\,of\\,outcomes\\,in\\,A \\over \\#\\,of\\,all\\,possible\\,outcomes}$\n",
                                                             "The General Additional Rule<br>" +
-                                                                    "$\\quad P(A\\lor B)=P(A)+P(B)-P(A\\land B)$",
+                                                                    "$\\quad P(A\\lor B)\\\\" +
+                                                                    "\\qquad=P(A)+P(B)-P(A\\land B)$",
                                                             "The Conditional Probability<br>" +
                                                                     "$\\quad P(B\\mid A)={P(A\\land B) \\over P(A)}$",
                                                             "The Binomial Distribution Model<br>" +
-                                                                    "$\\quad P(X=x)=n\\raisebox{0.25em}{C}x\\cdot p^x\\cdot q^{n-x}$",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            ""));
+                                                                    "$\\quad P(X=x)=n\\raisebox{0.25em}{C}x\\cdot p^x\\cdot q^{n-x}$"));
         ArrayList proUrlList = new ArrayList<>(Arrays.asList("fw-dGViD8w4",
                                                             "jDnU3-jX4GA",
                                                             "H02B3aMNKzE",
-                                                            "WWv0RUxDfbs",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            ""));
+                                                            "WWv0RUxDfbs"));
 
-        ArrayList dataEqList = new ArrayList<>(Arrays.asList(""));
-        ArrayList dataUrlList = new ArrayList<>(Arrays.asList(""));
+        ArrayList dataEqList = new ArrayList<>(Arrays.asList("The mean: $\\bar{x}={{\\Sigma x_i} \\over n}$",
+                                                            "The median($Q_2$):<br>" +
+                                                                    "$\\quad odd)({{n+1} \\over 2})_{th}\\quad even){{({n \\over 2})_{th}+({n \\over  2}+1)_{th}  } \\over 2}$",
+                                                            "The mode: the most frequent value",
+                                                            "Measure of Position from persentiles of data:<br>" +
+                                                                    "$\\quad P_n=(int)(\\% \\cdot n)+1$",
+                                                            "$Q_1=odd) ({{n+1}\\over 4})_{th}\\\\" +
+                                                                    "\\qquad even)(A+0.25\\cdot (B-A))_{th}$",
+                                                            "$Q_3=odd) ({3({n+1})\\over 4})_{th}\\\\" +
+                                                                    "\\qquad even)(C+0.75\\cdot (D-C))_{th}$\n",
+                                                            "$IQR=Q_3-Q_1=75\\%_{th}-25\\%_{th}$",
+                                                            "$Outliers < Q_1-0.25\\cdot IQR\\\\" +
+                                                                    "\\qquad\\lor Q_3+0.75\\cdot IQR < Outliers$",
+                                                            "The standard deviation: $s=\\sqrt{\\Sigma(x-\\bar{x})^2 \\over{n-1}}$",
+                                                            "The Coefficient of Variation: $V={s\\over{\\bar{x}}}\\cdot 100\\%$",
+                                                            "Skewness of a Distribution: $SK={{3(\\bar{x}-Q_2)}\\over s}$",
+                                                            "Measures of Position: $z={{x-\\bar{x}}\\over s}$",
+                                                            "Describing a distribution:<br>" +
+                                                                    "$\\quad\\def\\arraystretch{1.5}\n" +
+                                                                    "   \\begin{array}{c|c:c}\n" +
+                                                                    "   shape & Symmetric & skewed \\\\ \\hline\n" +
+                                                                    "   centre & \\bar{x} & Q_2 \\\\\n" +
+                                                                    "   \\hdashline\n" +
+                                                                    "   spread & s & IQR\n" +
+                                                                    "\\end{array}$",
+                                                            "Empirical Rule(68-95-99.2)$\\quad sd={{range} \\over 6}$"));
+        ArrayList dataUrlList = new ArrayList<>(Arrays.asList("h8EYEJ32oQ8",    // 3m
+                                                            "h8EYEJ32oQ8",
+                                                            "h8EYEJ32oQ8",
+                                                            "Snf6Wpn-L4c",  // Measure of Position from persentiles of data
+                                                            "K3wsOqIqA6k",  // q & IQR
+                                                            "K3wsOqIqA6k",
+                                                            "K3wsOqIqA6k",
+                                                            "FRlTh5HQORA",  // $Outliers
+                                                            "HvDqbzu0i0E",  // sd
+                                                            "4BCVcIyEY5k",  // Coefficient
+                                                            "JFesFhraX2M",  // skew
+                                                            "E4HAYd0QnRc",  // spread
+                                                            "2oJldeE4JcU",  // shapes
+                                                            "OhRr26AfFBU"));
 
-        ArrayList meanEqList = new ArrayList<>(Arrays.asList(""));
-        ArrayList meanUrlList = new ArrayList<>(Arrays.asList(""));
+        ArrayList meanEqList = new ArrayList<>(Arrays.asList("Binomial Distribution:<br>" +
+                        "$\\quad \\mu_x=np\\\\" +
+                        "\\quad \\sigma_x=\\sqrt{npq}$",
+                "Sampling Distribution Model:<br>" +
+                        "$\\quad SD(\\bar y)={\\sigma \\over {\\sqrt n}}\\\\" +
+                        "\\quad z_y={\\bar y-\\mu \\over s}\\\\" +
+                        "\\quad SE(\\bar y)={s \\over {\\sqrt n}}$",
+                "Degrees of freedom: $df=n-1$",
+                "The standardized sample’s critical value:<br>" +
+                        "$\\quad t={{\\bar y -\\mu} \\over {SE(\\bar y)}}$",
+                "Margin of Error: $ME=t_{n-1}\\cdot {s\\over {\\sqrt n}}$",
+                "Minimum sample size: $n=({{t_\\infty \\cdot s}\\over {ME}})^2$",
+                "The confidence interval:<br>" +
+                        "$\\quad CI=\\bar y \\pm t_{n-1}\\cdot SE(\\bar y)$"));
+        ArrayList meanUrlList = new ArrayList<>(Arrays.asList("SqcxYnNlI3Y",
+                "FXZ2O1Lv-KE",
+                "VIlVWeUQ0vs",
+                "lccjSiVTx7c",
+                "OwPSuHXmiPw",
+                "DyBMjhWGLoo",
+                "hlM7zdf7zwU"));
 
         eqMap.put("Number Theory", numthEqList);
         urlMap.put("Number Theory", numthUrlList);
