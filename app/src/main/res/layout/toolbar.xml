@@ -1,0 +1,11 @@
+<!--retrieved from https://stackoverflow.com/questions/26852108/how-do-you-set-the-title-color-for-the-new-toolbar-->
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:background="#FFFFFF"
+    app:theme="@style/AppTheme.Toolbar"
+    app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"/>
