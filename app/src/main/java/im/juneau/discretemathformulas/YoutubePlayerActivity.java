@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -42,6 +43,7 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
                 Log.i(TAG, "Failed to intialize");
+                Toast.makeText(YoutubePlayerActivity.this, "Unable to load Video. Please try later.", Toast.LENGTH_LONG).show();
             }
         };
 

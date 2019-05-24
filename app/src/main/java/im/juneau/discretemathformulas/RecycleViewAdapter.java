@@ -45,7 +45,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             @Override
             public void onClick(View v) {
 //                Log.i(TAG, "onClick: clicked on: " + i + "th card");
-                Toast.makeText(mContext, urlList.get(i), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, urlList.get(i), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext.getApplicationContext(), YoutubePlayerActivity.class);
                 intent.putExtra("url", urlList.get(i));
                 mContext.startActivity(intent);

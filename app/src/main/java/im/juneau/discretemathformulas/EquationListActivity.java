@@ -33,8 +33,8 @@ public class EquationListActivity extends AppCompatActivity {
         String topic = getIntent().getStringExtra("topic");
         ArrayList<String> eqList = getIntent().getStringArrayListExtra("eqList");
         ArrayList<String> urlList = getIntent().getStringArrayListExtra("urlList");
-        Log.i("topic recieved", topic);
-        Log.i("recieved eqList Size: ", Integer.toString(eqList.size()));
+//        Log.i("topic recieved", topic);
+//        Log.i("recieved eqList Size: ", Integer.toString(eqList.size()));
 
         // set title
         setTitle(topic);

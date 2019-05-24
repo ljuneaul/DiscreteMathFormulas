@@ -29,7 +29,7 @@ public class InfoActivity extends AppCompatActivity {
         khanImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openLink("https://www.khanacademy.org/math/statistics-probability");
+                openLink("https://www.khanacademy.org/math/");
             }
         });
 

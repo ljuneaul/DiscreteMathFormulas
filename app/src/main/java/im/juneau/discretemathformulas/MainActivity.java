@@ -55,17 +55,20 @@ public class MainActivity extends AppCompatActivity {
                                                                       "&emsp;The number finishes at 0.",
                                                               "<b>Divisibility rule for 11</b><br>" +
                                                                       "&emsp;The alternating sum of its digits is divisible by 11.",
-                                                              "$(a-r)\\div=q\\\\" +
-                                                                      "\\quad\\enspace a-r=qb\\\\" +
-                                                                      "\\qquad\\quad\\, a=qb+r$",
+                                                              "$\\begin{aligned}" +
+                                                                      "(a-r)\\div b&=q\\\\" +
+                                                                      "a-r&=qb\\\\a&=qb+r" +
+                                                                      "\\end{aligned}$",
                                                               "If $a\\equiv b\\pmod n$ and $c\\equiv d\\pmod n$ then:<br>" +
-                                                                      "$\\quad a+c\\equiv b+d\\enspace\\pmod n\\\\\\\\" +
-                                                                      "\\quad a-c\\equiv b-d\\enspace\\pmod n\\\\\\\\" +
-                                                                      "\\quad\\enspace a\\cdot c\\equiv b\\cdot d\\enspace\\pmod n$",
+                                                                      "$\\begin{aligned}" +
+                                                                      "\\quad a+c&\\equiv b+d\\pmod n\\\\\\\\" +
+                                                                      "\\quad a-c&\\equiv b-d\\pmod n\\\\\\\\" +
+                                                                      "\\quad a\\cdot c&\\equiv b\\cdot d\\pmod n" +
+                                                                      "\\end{aligned}$",
                                                               "<b>Airline Tickets</b>:<br>" +
                                                                       "&emsp;main part $\\equiv$ check digit$\\pmod 7$",
                                                               "<b>SIN</b>: Double the even position digits and add their digits, sum the rest of the digits<br>" +
-                                                                      "&emsp;-sum$ \\equiv $check digit$\\pmod {10}$",
+                                                                      "&emsp;-sum $\\equiv$ check digit$\\pmod {10}$",
                                                               "<b>UPC</b>:<br>" +
                                                                       "&emsp;check digit $\\equiv -(3a_{11}+a_{10}+3a_9+a_8+3a_7+a_6+3a_5+a_4+3a_3+a_2+3a_1)\\pmod {10}$",
                                                               "<b>ISBN</b>:<br>" +
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                                                                "Geometric Sequences: General term<br>" +
                                                                        "$\\quad a_s=a_1\\cdot r^{n-1}$",
                                                                "Geometric Sequences: Sum of first n terms<br>" +
-                                                                       "$\\quad S_n=a_1{1-r^n \\over 1-r}$",
+                                                                       "$\\quad S_n=a_1\\cdot {1-r^n \\over 1-r}$",
                                                                "Sum of all Geometric Infinite Series<br>" +
                                                                        "$\\quad T={a_1 \\over 1-r}$"));
         ArrayList seqUrlList = new ArrayList<>(Arrays.asList("ZiGW6PbB8wA",
@@ -107,8 +110,10 @@ public class MainActivity extends AppCompatActivity {
                                                                "b-7kCymoUpg"));
 
         ArrayList countEqList = new ArrayList<>(Arrays.asList("Tournament Scheduling<br>" +
-                                                                        "$\\quad T_{m,r}\\equiv r-m\\pmod N\\\\" +
-                                                                        "\\qquad\\quad \\equiv round-team\\pmod N$",
+                                                                        "$\\begin{aligned}" +
+                                                                        "\\quad T_{m,r}&\\equiv r-m\\pmod N\\\\" +
+                                                                        "&\\equiv round-team\\pmod N" +
+                                                                        "\\end{aligned}$",
                                                                 "When N is odd and $T_{m,r}\\equiv m$<br>" +
                                                                         "$\\quad$ The team is assigned a bye.",
                                                                 "When N is even, $\\pmod {N-1}$<br>" +
@@ -144,10 +149,14 @@ public class MainActivity extends AppCompatActivity {
                                                             "The mode: the most frequent value",
                                                             "Measure of Position from persentiles of data:<br>" +
                                                                     "$\\quad P_n=(int)(\\% \\cdot n)+1$",
-                                                            "$Q_1=odd) ({{n+1}\\over 4})_{th}\\\\" +
-                                                                    "\\qquad even)(A+0.25\\cdot (B-A))_{th}$",
-                                                            "$Q_3=odd) ({3({n+1})\\over 4})_{th}\\\\" +
-                                                                    "\\qquad even)(C+0.75\\cdot (D-C))_{th}$\n",
+                                                            "$\\begin{aligned}" +
+                                                                    "Q_1=odd)&({{n+1}\\over 4})_{th}\\\\" +
+                                                                    "even)&(A+0.25\\cdot (B-A))_{th}" +
+                                                                    "\\end{aligned}$",
+                                                            "$\\begin{aligned}" +
+                                                                    "Q_3=odd)&({3({n+1})\\over 4})_{th}\\\\" +
+                                                                    "even)&(C+0.75\\cdot (D-C))_{th}" +
+                                                                    "\\end{aligned}$",
                                                             "$IQR=Q_3-Q_1=75\\%_{th}-25\\%_{th}$",
                                                             "$Outliers < Q_1-0.25\\cdot IQR\\\\" +
                                                                     "\\qquad\\lor Q_3+0.75\\cdot IQR < Outliers$",
@@ -163,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                                                                     "   \\hdashline\n" +
                                                                     "   spread & s & IQR\n" +
                                                                     "\\end{array}$",
-                                                            "Empirical Rule(68-95-99.2)$\\quad sd={{range} \\over 6}$"));
+                                                            "Empirical Rule(68-95-99.2)$\\quad s={{range} \\over 6}$"));
         ArrayList dataUrlList = new ArrayList<>(Arrays.asList("h8EYEJ32oQ8",    // 3m
                                                             "h8EYEJ32oQ8",
                                                             "h8EYEJ32oQ8",
@@ -189,10 +198,10 @@ public class MainActivity extends AppCompatActivity {
                 "Degrees of freedom: $df=n-1$",
                 "The standardized sample’s critical value:<br>" +
                         "$\\quad t={{\\bar y -\\mu} \\over {SE(\\bar y)}}$",
-                "Margin of Error: $ME=t_{n-1}\\cdot {s\\over {\\sqrt n}}$",
-                "Minimum sample size: $n=({{t_\\infty \\cdot s}\\over {ME}})^2$",
+                "Margin of Error: $ME=t_{n-1}^*\\cdot {s\\over {\\sqrt n}}$",
+                "Minimum sample size: $n=({{t_\\infty^* \\cdot s}\\over {ME}})^2$",
                 "The confidence interval:<br>" +
-                        "$\\quad CI=\\bar y \\pm t_{n-1}\\cdot SE(\\bar y)$"));
+                        "$\\quad CI=\\bar y \\pm t_{n-1}^*\\cdot SE(\\bar y)$"));
         ArrayList meanUrlList = new ArrayList<>(Arrays.asList("SqcxYnNlI3Y",
                 "FXZ2O1Lv-KE",
                 "VIlVWeUQ0vs",
