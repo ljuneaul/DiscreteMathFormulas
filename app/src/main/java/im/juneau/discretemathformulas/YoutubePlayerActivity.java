@@ -1,6 +1,7 @@
 package im.juneau.discretemathformulas;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,20 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class YoutubePlayerActivity extends YouTubeBaseActivity {
 
@@ -36,8 +51,9 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
                 Log.i(TAG, "Done intializing");
 
                 Intent intent = new Intent();
-                youTubePlayer.loadVideo(getIntent().getStringExtra("url"));
-                Log.i(TAG, "url: " + getIntent().getStringExtra("url"));
+                String urlAddress = getIntent().getStringExtra("url");
+                youTubePlayer.loadVideo(urlAddress);
+                Log.i(TAG, "url: " + urlAddress);
             }
 
             @Override
