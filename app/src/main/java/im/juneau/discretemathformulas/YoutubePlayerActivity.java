@@ -1,32 +1,22 @@
 package im.juneau.discretemathformulas;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class YoutubePlayerActivity extends YouTubeBaseActivity {
 
@@ -35,6 +25,12 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
     YouTubePlayerView youTubePlayerView;
     Button playButton;
     YouTubePlayer.OnInitializedListener onInitializedListener;
+    Button ytTosButton;
+    Button playerToS;
+    AlertDialog.Builder alertBuilder;
+    DialogInterface.OnClickListener dialogListener;
+    Intent intent;
+    String videoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +40,10 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
 
         youTubePlayerView = (YouTubePlayerView)findViewById(R.id.youtubePlayerView);
         playButton = findViewById(R.id.playButton);
+        ytTosButton = findViewById(R.id.ytTosButton);
+        playerToS = findViewById(R.id.playerToS);
+        intent = new Intent();
+        videoId = getIntent().getStringExtra("url");
 
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -51,9 +51,9 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
                 Log.i(TAG, "Done intializing");
 
                 Intent intent = new Intent();
-                String urlAddress = getIntent().getStringExtra("url");
-                youTubePlayer.loadVideo(urlAddress);
-                Log.i(TAG, "url: " + urlAddress);
+                videoId = getIntent().getStringExtra("url");
+                youTubePlayer.loadVideo(videoId);
+                Log.i(TAG, "url: " + videoId);
             }
 
             @Override
@@ -67,9 +67,75 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
             @Override
             public void onClick(View v) {
                 playButton.setVisibility(View.GONE);
+                ytTosButton.setVisibility(View.GONE);
+                playerToS.setVisibility(View.GONE);
                 Log.i(TAG, "Intializing YouTube Player");
                 youTubePlayerView.initialize(YouTubeConfig.getApiKey(), onInitializedListener);
             }
         });
+
+        ytTosButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.youtube.com/t/terms"));
+                startActivity(intent);
+            }
+        });
+
+        playerToS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView tv = new TextView(youTubePlayerView.getContext());
+                tv.setMovementMethod(LinkMovementMethod.getInstance());
+                tv.setText(Html.fromHtml(playerTouText));
+                alertBuilder = new AlertDialog.Builder(YoutubePlayerActivity.this);
+                alertBuilder.setTitle("Player Terms of Usage")
+                        .setView(tv)
+                        .setPositiveButton("Agree", dialogListener)
+                        .setNegativeButton("Disagree", dialogListener).show();
+            }
+        });
+
+        dialogListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        //Yes button clicked
+                        dialog.dismiss();
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        dialog.dismiss();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intent.setData(Uri.parse("https://www.youtube.com/watch?v=" + videoId));
+                        startActivity(intent);
+                        YoutubePlayerActivity.this.finish();
+                        break;
+                }
+            }
+        };
+
+        TextView tv = new TextView(this);
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
+        tv.setText(Html.fromHtml(playerTouText));
+        alertBuilder = new AlertDialog.Builder(YoutubePlayerActivity.this);
+        alertBuilder.setTitle("YouTube Player Terms of Usage")
+                .setView(tv)
+                .setPositiveButton("Agree", dialogListener)
+                .setNegativeButton("Disagree", dialogListener).show();
     }
+
+    String playerTouText = "1. This player is using YouTube API Service.<br>" +
+            "2. For the Google Privacy Policy, please refer to " +
+            "<a href='http://www.google.com/policies/privacy'>http://www.google.com/policies/privacy</a>.<br>" +
+            "3. This application is not storing any user information or data usage. However, Youtube might.<br>" +
+            "4. No information or data is being shared with external parties except YouTube.<br>" +
+            "5. No third party other then YouTube is allowed to access the content including advertisements.<br>" +
+            "6. No data or usage is collected or stored by using this player.";
 }

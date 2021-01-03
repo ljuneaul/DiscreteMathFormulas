@@ -75,7 +75,7 @@ public class InfoActivity extends AppCompatActivity {
 
     public void sendEmail() {
         // retrieved from https://medium.com/@cketti/android-sending-email-using-intents-3da63662c58f
-        String mailto = "mailto:jungwon.limm@gmail.com" +
+        String mailto = "mailto:juneaulim@outlook.com" +
                 "&subject=" + Uri.encode("Inquiry about Discrete Math Formulas.");
 
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
