@@ -58,7 +58,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="Player Terms of Service"
+                android:text="Player Privacy Policy"
                 app:layout_constraintBottom_toTopOf="@+id/ytTosButton"
                 app:layout_constraintStart_toStartOf="parent" />
         </android.support.constraint.ConstraintLayout>

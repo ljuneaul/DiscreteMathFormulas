@@ -125,17 +125,17 @@ public class YoutubePlayerActivity extends YouTubeBaseActivity {
         tv.setMovementMethod(LinkMovementMethod.getInstance());
         tv.setText(Html.fromHtml(playerTouText));
         alertBuilder = new AlertDialog.Builder(YoutubePlayerActivity.this);
-        alertBuilder.setTitle("YouTube Player Terms of Usage")
+        alertBuilder.setTitle("Player Privacy Policy")
                 .setView(tv)
                 .setPositiveButton("Agree", dialogListener)
                 .setNegativeButton("Disagree", dialogListener).show();
     }
 
-    String playerTouText = "1. This player is using YouTube API Service.<br>" +
+    String playerTouText = "1. This player is using YouTube API Service. By using this player, you are agreeing to be bound by the <a href='https://www.youtube.com/t/terms'>YouTube Terms of Service</a>.<br>" +
             "2. For the Google Privacy Policy, please refer to " +
             "<a href='http://www.google.com/policies/privacy'>http://www.google.com/policies/privacy</a>.<br>" +
             "3. This application is not storing any user information or data usage. However, Youtube might.<br>" +
             "4. No information or data is being shared with external parties except YouTube.<br>" +
-            "5. No third party other then YouTube is allowed to access the content including advertisements.<br>" +
+            "5. No third party other than YouTube is allowed to access the content including advertisements.<br>" +
             "6. No data or usage is collected or stored by using this player.";
 }
